@@ -13,3 +13,14 @@
 - When the user goes to profile the user should see a login form.
 - After the user logs in, show the profile of the user.
 - The goal is to be able to use the app even if we are logged out, to see coffees shops, but if we log in, we can see our profile.
+
+# Assignment14
+- Today we are gonna make the Home tab.
+
+- The Home tab should show all the coffee shops in your Database.
+
+- The features you have to implement are:
+  - Infinite Scroll
+  - Pull to Refresh
+- The Coffee Shop component should display the name, photos and categories.
+

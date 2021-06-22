@@ -1,6 +1,4 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
-import ProfileLoggedOut from "../screen/ProfileLoggedOut";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import TabIcon from "../components/nav/TabIcon";
 import SharedStackNav from "./SharedStackNav";

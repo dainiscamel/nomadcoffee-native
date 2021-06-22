@@ -14,9 +14,12 @@ const Container = styled.View`
 const ImageWrapper = styled.View`
   width: 150px;
   height: 150px;
-  border-radius: 100;
+  border-radius: 100px;
   background-color: #2c2c2c;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Image = styled.Image`
@@ -40,13 +43,13 @@ export default function Me() {
   const { data } = useQuery(ME_QUERY, {
     skip: !hasToken,
   });
-  console.log(data.me.username);
-
+  console.log(data?.me?.avatarURL);
   return (
     <Container>
       <ImageWrapper>
-        <Image resizeMode="contain" source={{ uri: data?.me?.avatarURL }} />
+        <Image resizeMode="cover" source={{ uri: data?.me?.avatarURL }} />
       </ImageWrapper>
+      <Text style={{ color: "white" }}>{data?.me?.username}</Text>
     </Container>
   );
 }
