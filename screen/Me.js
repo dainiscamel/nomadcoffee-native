@@ -43,7 +43,7 @@ export default function Me() {
   const { data } = useQuery(ME_QUERY, {
     skip: !hasToken,
   });
-  console.log(data?.me?.avatarURL);
+
   return (
     <Container>
       <ImageWrapper>

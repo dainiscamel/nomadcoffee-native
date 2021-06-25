@@ -4,9 +4,13 @@ import ProfileLoggedOut from "../screen/ProfileLoggedOut";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import TabIcon from "../components/nav/TabIcon";
 import SharedStackNav from "./SharedStackNav";
+import useMe from "../hooks/useMe";
+import { Image } from "react-native";
 
 const Tabs = createBottomTabNavigator();
 export default function LoggedOutNav() {
+  const { data } = useMe();
+
   return (
     <Tabs.Navigator
       tabBarOptions={{
@@ -43,9 +47,20 @@ export default function LoggedOutNav() {
       <Tabs.Screen
         name="Profile"
         options={{
-          tabBarIcon: ({ focused, color, size }) => (
-            <TabIcon iconName={"person"} color={color} focused={focused} />
-          ),
+          tabBarIcon: ({ focused, color, size }) =>
+            data?.me?.avatarURL ? (
+              <Image
+                source={{ uri: data.me.avatarURL }}
+                style={{
+                  height: 20,
+                  width: 20,
+                  borderRadius: 10,
+                  ...(focused && { borderColor: "white", borderWidth: 1 }),
+                }}
+              />
+            ) : (
+              <TabIcon iconName={"person"} color={color} focused={focused} />
+            ),
         }}
       >
         {() => <SharedStackNav screenName="Me" />}

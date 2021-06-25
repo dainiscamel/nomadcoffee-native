@@ -43,7 +43,6 @@ export default function Home() {
   };
   const [refreshing, setRefreshing] = useState(false);
 
-  console.log(data?.seeCoffeeShops?.length);
   return (
     <ScreenLayout loading={loading}>
       <FlatList
